@@ -84,6 +84,8 @@
             </li>
           <? endforeach; ?>
         </ul>
+
+        <p>Last updated <a href="images/hours.jpg">October 9, 2011</a></p>
       </div>
 
       <div id="map">

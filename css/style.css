@@ -129,6 +129,13 @@ div#hours ul li span.time {
   text-align: center;
 }
 
+div#hours p {
+  margin-top: 1.7em;
+  font-size: 0.9em;
+  color: #aaa;
+  text-align: center;
+}
+
 div#map {
   margin-left: 400px;
   line-height: 1.6em;
