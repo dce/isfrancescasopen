@@ -28,6 +28,8 @@ body {
 
 a {
   color: #333;
+  text-decoration: none;
+  background-color: #fffd8b;
 }
 
 a:hover {
@@ -130,10 +132,11 @@ div#hours ul li span.time {
 
 div#map {
   margin-left: 400px;
+  line-height: 1.6em;
 }
 
 div#map h4 {
-  margin-bottom: 12px;
+  margin: 0;
 }
 
 footer {
