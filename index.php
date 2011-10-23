@@ -28,6 +28,16 @@
     }
   }
 
+  function hours_to_string($hours) {
+    $content = array();
+
+    foreach ($hours as $day_of_week => $open_close) {
+      array_push($content, substr($day_of_week, 0, 3) . ": " . $open_close[0] . "am-" . ($open_close[1] - 12) . "pm");
+    }
+
+    return implode("; ", $content);
+  }
+
   $hours = array(
     "Sunday"    => array(11, 22),
     "Monday"    => array(11, 22),
@@ -39,7 +49,7 @@
   );
 
   $date = getdate();
-  $timestamp = $date[0];
+  $timestamp = date("M d, g:ia", $date[0]);
   $time = $date["hours"] + ($date["minutes"] / 60.0);
   $day_of_week = $date["wday"];
   $day_name = day_name($day_of_week, $hours);
@@ -50,7 +60,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Is Francesca's Open?</title>
+  <title>Francesca's Dessert Cafe (Durham, NC) Hours of Operation</title>
+  <meta class="description" content="Hours for Francesca's Dessert Caffe in Durham, NC. <?= hours_to_string($hours) ?>." />
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -58,7 +69,7 @@
   <div id="container">
     <header>
       <strong>Francesca&rsquo;s Dessert Caffe</strong> in Durham, NC
-      <div id="current-time"><?= date("M d, g:ia", $timestamp) ?></id>
+      <div id="current-time"><?= $timestamp ?></id>
     </header>
 
     <div id="primary">
