@@ -29,13 +29,13 @@
   }
 
   $hours = array(
-    "Sunday"    => array(9, 21),
-    "Monday"    => array(9, 21),
-    "Tuesday"   => array(9, 21),
-    "Wednesday" => array(9, 21),
-    "Thursday"  => array(9, 21),
-    "Friday"    => array(9, 22),
-    "Saturday"  => array(9, 22)
+    "Sunday"    => array(11, 22),
+    "Monday"    => array(11, 22),
+    "Tuesday"   => array(11, 22),
+    "Wednesday" => array(11, 22),
+    "Thursday"  => array(11, 22),
+    "Friday"    => array(11, 23),
+    "Saturday"  => array(11, 23)
   );
 
   $date = getdate();
