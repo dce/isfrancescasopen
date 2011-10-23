@@ -1,3 +1,51 @@
+<?
+  date_default_timezone_set("America/New_York");
+
+  function day_index($day_of_week, $hours) {
+    return array_search($day_of_week, array_keys($hours));
+  }
+
+  function day_name($day_index, $hours) {
+    $day_names = array_keys($hours);
+    return $day_names[$day_index];
+  }
+
+  function hours_list_class($day_of_week, $hours) {
+    return (day_index($day_of_week, $hours) % 2 == 0) ? "shade" : "";
+  }
+
+  function currently_open($time, $hours) {
+    return ($time >= $hours[0]) && ($time <= $hours[1]);
+  }
+
+  function next_open($time, $current_hours, $day_of_week, $hours) {
+    if ($time > $current_hours[1]) {
+      $tomorrow_index = ($day_of_week + 1) % 7;
+      $tomorrow_name = day_name($tomorrow_index, $hours);
+      return "" . $hours[$tomorrow_name][0] . "am tomorrow";
+    } else {
+      return "" . $current_hours[0] . "am";
+    }
+  }
+
+  $hours = array(
+    "Sunday"    => array(9, 21),
+    "Monday"    => array(9, 21),
+    "Tuesday"   => array(9, 21),
+    "Wednesday" => array(9, 21),
+    "Thursday"  => array(9, 21),
+    "Friday"    => array(9, 22),
+    "Saturday"  => array(9, 22)
+  );
+
+  $date = getdate();
+  $timestamp = $date[0];
+  $time = $date["hours"] + ($date["minutes"] / 60.0);
+  $day_of_week = $date["wday"];
+  $day_name = day_name($day_of_week, $hours);
+  $current_hours = $hours[$day_name];
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -10,13 +58,18 @@
   <div id="container">
     <header>
       <strong>Francesca&rsquo;s Dessert Caffe</strong> in Durham, NC
-      <div id="current-time">Oct. 22, 8:50pm</id>
+      <div id="current-time"><?= date("M d, g:ia", $timestamp) ?></id>
     </header>
 
     <div id="primary">
       <h1>Is Francesca&rsquo;s open?</h1>
-      <h2>Yes,</h2>
-      <h3>until 9:00pm.</h3>
+      <? if (currently_open($time, $current_hours)): ?>
+        <h2>Yes,</h2>
+        <h3>until <?= $current_hours[1] - 12 ?>pm.</h3>
+      <? else: ?>
+        <h2>No,</h2>
+        <h3>not until <?= next_open($time, $current_hours, $day_of_week, $hours) ?>.</h3>
+      <? endif; ?>
     </div>
 
     <div id="secondary">
@@ -24,34 +77,12 @@
         <h4>Francesca&rsquo;s Fall Hours</h4>
 
         <ul>
-          <li class="shade">
-            <span class="day">Monday</span>
-            <span class="time">9am &ndash; 9pm</span>
-          </li>
-          <li>
-            <span class="day">Tuesday</span>
-            <span class="time">9am &ndash; 9pm</span>
-          </li>
-          <li class="shade">
-            <span class="day">Wednesday</span>
-            <span class="time">9am &ndash; 9pm</span>
-          </li>
-          <li>
-            <span class="day">Thursday</span>
-            <span class="time">9am &ndash; 9pm</span>
-          </li>
-          <li class="shade">
-            <span class="day">Friday</span>
-            <span class="time">9am &ndash; 9pm</span>
-          </li>
-          <li>
-            <span class="day">Saturday</span>
-            <span class="time">9am &ndash; 9pm</span>
-          </li>
-          <li class="shade">
-            <span class="day">Sunday</span>
-            <span class="time">9am &ndash; 9pm</span>
-          </li>
+          <? foreach ($hours as $day_of_week => $open_close): ?>
+            <li class="<?= hours_list_class($day_of_week, $hours) ?>">
+              <span class="day"><?= $day_of_week ?></span>
+              <span class="time"><?= $open_close[0] ?>am &ndash; <?= $open_close[1] - 12 ?>pm</span>
+            </li>
+          <? endforeach; ?>
         </ul>
       </div>
 
