@@ -49,9 +49,14 @@ header {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   color: #333;
+  height: 15px;
 }
 
-header div#current-time {
+header div.title {
+  float: left;
+}
+
+header div.current-time {
   float: right;
 }
 

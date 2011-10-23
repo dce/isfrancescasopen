@@ -68,8 +68,8 @@
 <body>
   <div id="container">
     <header>
-      <strong>Francesca&rsquo;s Dessert Caffe</strong> in Durham, NC
-      <div id="current-time"><?= $timestamp ?></id>
+      <div class="title"><strong>Francesca&rsquo;s Dessert Caffe</strong> in Durham, NC</div>
+      <div class="current-time"><?= $timestamp ?></div>
     </header>
 
     <div id="primary">
@@ -114,7 +114,7 @@
     </div>
 
     <footer>
-      <p>This website was created by <a href="mailto:david.eisinger@gmail.com">David Eisinger</a>, who likes Francesca&rsquo;s but is otherwise in no way affiliated with it.</p>
+      <p>This website was created by <a href="http://davideisinger.com">David Eisinger</a>, who likes Francesca&rsquo;s but is otherwise in no way affiliated with it.</p>
     </footer>
   </div>
 </body>
