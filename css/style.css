@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'ArvoRegular';
-  src: url('/fonts/Arvo-Regular-webfont.eot');
-  src: url('/fonts/Arvo-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/Arvo-Regular-webfont.woff') format('woff'),
-       url('/fonts/Arvo-Regular-webfont.ttf') format('truetype'),
-       url('/fonts/Arvo-Regular-webfont.svg#CopseRegular') format('svg');
+  src: url('../fonts/Arvo-Regular-webfont.eot');
+  src: url('../fonts/Arvo-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Arvo-Regular-webfont.woff') format('woff'),
+       url('../fonts/Arvo-Regular-webfont.ttf') format('truetype'),
+       url('../fonts/Arvo-Regular-webfont.svg#CopseRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'ArvoRegular';
-  src: url('/fonts/Arvo-Bold-webfont.eot');
-  src: url('/fonts/Arvo-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/Arvo-Bold-webfont.woff') format('woff'),
-       url('/fonts/Arvo-Bold-webfont.ttf') format('truetype'),
-       url('/fonts/Arvo-Bold-webfont.svg#ArvoRegular') format('svg');
+  src: url('../fonts/Arvo-Bold-webfont.eot');
+  src: url('../fonts/Arvo-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Arvo-Bold-webfont.woff') format('woff'),
+       url('../fonts/Arvo-Bold-webfont.ttf') format('truetype'),
+       url('../fonts/Arvo-Bold-webfont.svg#ArvoRegular') format('svg');
   font-weight: bold;
   font-style: normal;
 }
