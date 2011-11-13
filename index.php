@@ -15,14 +15,25 @@
   }
 
   function currently_open($time, $hours) {
-    return ($time >= $hours[0]) && ($time <= $hours[1]);
+    return ($hours != "closed") && ($time >= $hours[0]) && ($time <= $hours[1]);
+  }
+
+  function day_after($day_of_week, $hours) {
+    $tomorrow_index = ($day_of_week + 1) % 7;
+    return day_name($tomorrow_index, $hours);
   }
 
   function next_open($time, $current_hours, $day_of_week, $hours) {
-    if ($time > $current_hours[1]) {
-      $tomorrow_index = ($day_of_week + 1) % 7;
-      $tomorrow_name = day_name($tomorrow_index, $hours);
-      return "" . $hours[$tomorrow_name][0] . "am tomorrow";
+    if ($current_hours == "closed" || $time > $current_hours[1]) {
+      $next_open = day_after($day_of_week, $hours);
+      $label = "tomorrow";
+
+      if ($hours[$next_open] == "closed") {
+        $next_open = day_after($day_of_week + 1, $hours);
+        $label = $next_open;
+      }
+
+      return "" . $hours[$next_open][0] . "am " . $label;
     } else {
       return "" . $current_hours[0] . "am";
     }
@@ -32,7 +43,8 @@
     $content = array();
 
     foreach ($hours as $day_of_week => $open_close) {
-      array_push($content, substr($day_of_week, 0, 3) . ": " . $open_close[0] . "am-" . ($open_close[1] - 12) . "pm");
+      $times = ($open_close == "closed") ? "Closed" : $open_close[0] . "am-" . ($open_close[1] - 12) . "pm";
+      array_push($content, substr($day_of_week, 0, 3) . ": " .  $times);
     }
 
     return implode("; ", $content);
@@ -40,7 +52,7 @@
 
   $hours = array(
     "Sunday"    => array(11, 22),
-    "Monday"    => array(11, 22),
+    "Monday"    => "closed",
     "Tuesday"   => array(11, 22),
     "Wednesday" => array(11, 22),
     "Thursday"  => array(11, 22),
@@ -48,7 +60,7 @@
     "Saturday"  => array(11, 23)
   );
 
-  $date = getdate();
+  $date = getdate(mktime(13, 0, 0, 11, 15, 2011));
   $timestamp = date("M d, g:ia", $date[0]);
   $time = $date["hours"] + ($date["minutes"] / 60.0);
   $day_of_week = $date["wday"];
@@ -97,18 +109,24 @@
 
     <div id="secondary">
       <div id="hours">
-        <h4>Francesca&rsquo;s Fall Hours</h4>
+        <h4>Francesca&rsquo;s Winter Hours</h4>
 
         <ul>
           <? foreach ($hours as $day_of_week => $open_close): ?>
             <li class="<?= hours_list_class($day_of_week, $hours) ?>">
               <span class="day"><?= $day_of_week ?></span>
-              <span class="time"><?= $open_close[0] ?>am &ndash; <?= $open_close[1] - 12 ?>pm</span>
+              <span class="time">
+                <? if ($open_close == "closed"): ?>
+                  Closed
+                <? else: ?>
+                  <?= $open_close[0] ?>am &ndash; <?= $open_close[1] - 12 ?>pm
+                <? endif; ?>
+              </span>
             </li>
           <? endforeach; ?>
         </ul>
 
-        <p>Last updated <a href="images/hours.jpg">October 9, 2011</a></p>
+        <p>Last updated <a href="http://www.flickr.com/photos/deisinger/6338245873/">November 12, 2011</a></p>
       </div>
 
       <div id="map">
