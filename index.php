@@ -60,7 +60,7 @@
     "Saturday"  => array(11, 23)
   );
 
-  $date = getdate(mktime(13, 0, 0, 11, 15, 2011));
+  $date = getdate();
   $timestamp = date("M d, g:ia", $date[0]);
   $time = $date["hours"] + ($date["minutes"] / 60.0);
   $day_of_week = $date["wday"];
