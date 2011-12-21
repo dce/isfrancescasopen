@@ -100,10 +100,16 @@
       <h1>Is Francesca&rsquo;s open?</h1>
       <? if (currently_open($time, $current_hours)): ?>
         <h2>Yes,</h2>
-        <h3>until <?= $current_hours[1] - 12 ?>pm.</h3>
+        <h3>
+          until <?= $current_hours[1] - 12 ?>pm.
+          <em>(Mind the <a href="http://www.flickr.com/photos/deisinger/6546726545">Christmas hours</a>, though.)</em>
+        </h3>
       <? else: ?>
         <h2>No,</h2>
-        <h3>not until <?= next_open($time, $current_hours, $day_of_week, $hours) ?>.</h3>
+        <h3>
+          not until <?= next_open($time, $current_hours, $day_of_week, $hours) ?>.
+          <em>(Mind the <a href="http://www.flickr.com/photos/deisinger/6546726545">Christmas hours</a>, too.)</em>
+        </h3>
       <? endif; ?>
     </div>
 
