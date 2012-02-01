@@ -52,7 +52,7 @@
 
   $hours = array(
     "Sunday"    => array(11, 22),
-    "Monday"    => "closed",
+    "Monday"    => array(11, 22),
     "Tuesday"   => array(11, 22),
     "Wednesday" => array(11, 22),
     "Thursday"  => array(11, 22),
@@ -109,7 +109,7 @@
 
     <div id="secondary">
       <div id="hours">
-        <h4>Francesca&rsquo;s Winter Hours</h4>
+        <h4>Francesca&rsquo;s Hours</h4>
 
         <ul>
           <? foreach ($hours as $day_of_week => $open_close): ?>
@@ -126,7 +126,7 @@
           <? endforeach; ?>
         </ul>
 
-        <p>Last updated <a href="http://www.flickr.com/photos/deisinger/6338245873/">November 12, 2011</a></p>
+        <p>Last updated <a href="http://www.flickr.com/photos/deisinger/6799258975/">January 31, 2012</a></p>
       </div>
 
       <div id="map">
