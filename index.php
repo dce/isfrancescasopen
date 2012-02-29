@@ -10,8 +10,18 @@
     return $day_names[$day_index];
   }
 
-  function hours_list_class($day_of_week, $hours) {
-    return (day_index($day_of_week, $hours) % 2 == 0) ? "shade" : "";
+  function hours_list_class($day_of_week, $hours, $current_day) {
+    $class = array();
+
+    if (day_index($day_of_week, $hours) == $current_day) {
+      array_push($class, "current");
+    }
+
+    if (day_index($day_of_week, $hours) % 2 == 0) {
+      array_push($class, "shade");
+    }
+
+    return implode(" ", $class);
   }
 
   function currently_open($time, $hours) {
@@ -112,9 +122,9 @@
         <h4>Francesca&rsquo;s Hours</h4>
 
         <ul>
-          <? foreach ($hours as $day_of_week => $open_close): ?>
-            <li class="<?= hours_list_class($day_of_week, $hours) ?>">
-              <span class="day"><?= $day_of_week ?></span>
+          <? foreach ($hours as $dow => $open_close): ?>
+            <li class="<?= hours_list_class($dow, $hours, $day_of_week) ?>">
+              <span class="day"><?= $dow ?></span>
               <span class="time">
                 <? if ($open_close == "closed"): ?>
                   Closed

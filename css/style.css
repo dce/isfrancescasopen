@@ -118,6 +118,10 @@ div#hours ul li.shade {
   border-radius: 3px;
 }
 
+div#hours ul li.current {
+  color: #c00;
+}
+
 div#hours ul li span {
   display: block;
   padding: 10px;
