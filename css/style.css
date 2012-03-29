@@ -37,7 +37,7 @@ a:hover {
 }
 
 #container {
-  width: 760px;
+  max-width: 760px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -54,10 +54,6 @@ header {
 
 header div.title {
   float: left;
-}
-
-header div.current-time {
-  float: right;
 }
 
 div#primary {
@@ -92,10 +88,31 @@ div#secondary {
   padding: 40px 0 20px;
 }
 
-div#hours {
-  width: 360px;
-  margin-right: 20px;
-  float: left;
+@media screen and (max-width: 760px) {
+  header div.current-time {
+    display: none;
+  }
+
+  div#hours, div#map {
+    width: 360px;
+    margin: 0 auto 20px;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  header div.current-time {
+    float: right;
+  }
+
+  div#hours {
+    width: 360px;
+    margin-right: 20px;
+    float: left;
+  }
+
+  div#map {
+    margin-left: 400px;
+  }
 }
 
 div#hours h4 {
@@ -146,7 +163,6 @@ div#hours p {
 }
 
 div#map {
-  margin-left: 400px;
   line-height: 1.6em;
 }
 
