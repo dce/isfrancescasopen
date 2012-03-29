@@ -82,7 +82,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Francesca's Dessert Cafe (Durham, NC) Hours of Operation</title>
+  <title>Francesca's Dessert Caffe (Durham, NC) Hours of Operation</title>
   <meta class="description" content="Hours for Francesca's Dessert Caffe in Durham, NC. <?= hours_to_string($hours) ?>." />
   <meta name="viewport" content="width=400, initial-scale=0.7, minimum-scale=0.45" />
   <link rel="stylesheet" href="css/style.css">
