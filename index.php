@@ -140,7 +140,7 @@
           <? endforeach; ?>
         </ul>
 
-        <p>Last updated <a href="http://www.flickr.com/photos/deisinger/7359472098/">June 10, 2012</a></p>
+        <p>Last updated <a href="http://www.flickr.com/photos/deisinger/7767289978">August 12, 2012</a></p>
       </div>
 
       <div id="map">
