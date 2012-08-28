@@ -158,7 +158,7 @@
     </div>
 
     <footer>
-      <p>This website was created by <a href="http://davideisinger.com">David Eisinger</a>, who likes Francesca&rsquo;s but is otherwise in no way affiliated with it.</p>
+      <p>This website was created by <a href="http://davideisinger.com">David Eisinger</a>, who likes Francesca&rsquo;s but is otherwise in no way affiliated with it. Licensed <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA</a>.</p>
     </footer>
   </div>
 </body>
